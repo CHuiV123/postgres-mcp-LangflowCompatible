@@ -42,8 +42,14 @@ HYPOPG_EXTENSION = "hypopg"
 
 ResponseType = List[types.TextContent | types.ImageContent | types.EmbeddedResource]
 
-logger = logging.getLogger(__name__)
+# Log to stderr to not interfere with STDIO stream
+logging.basicConfig(
+    level=logging.INFO,
+    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
+    stream=sys.stderr
+)
 
+logger = logging.getLogger(__name__)
 
 class AccessMode(str, Enum):
     """SQL access modes for the server."""
