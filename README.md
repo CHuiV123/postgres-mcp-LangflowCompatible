@@ -51,9 +51,6 @@ What we did:
 - 🛠️ Fixed a broken page - by prompting the agent to explore the data, fix queries, and add related content.
 - 🧠 Improved the top movies - by exploring the data and fixing the ORM query to surface more relevant results.
 
-See the video below or read the [play-by-play](examples/movie-app.md).
-
-https://github.com/user-attachments/assets/24e05745-65e9-4998-b877-a368f1eadc13
 
 ## Installation 
 ### Manual Installation
