@@ -38,7 +38,7 @@ Features include:
 
 Postgres MCP Pro supports both the [Standard Input/Output (stdio)](https://modelcontextprotocol.io/docs/concepts/transports#standard-input%2Foutput-stdio) and [Server-Sent Events (SSE)](https://modelcontextprotocol.io/docs/concepts/transports#server-sent-events-sse) transports, for flexibility in different environments.
 
-For additional background on why we built Postgres MCP Pro, see [our launch blog post](https://www.crystaldba.ai/blog/post/announcing-postgres-mcp-server-pro).
+> **Note**: This modified version of Postgres MCP Server is compatible with [Langflow](https://github.com/langflow-ai/langflow) MCPTools component via STDIO protocol. 
 
 ## Demo
 
@@ -55,41 +55,44 @@ See the video below or read the [play-by-play](examples/movie-app.md).
 
 https://github.com/user-attachments/assets/24e05745-65e9-4998-b877-a368f1eadc13
 
+## Installation 
+### Manual Installation
 
-
-
-## Quick Start
-
-### Prerequisites
-
-Before getting started, ensure you have:
-1. Access credentials for your database.
-2. Docker *or* Python 3.12 or higher.
-
-#### Access Credentials
- You can confirm your access credentials are valid by using `psql` or a GUI tool such as [pgAdmin](https://www.pgadmin.org/).
-
-
-#### Docker or Python
-
-The choice to use Docker or Python is yours.
-We generally recommend Docker because Python users can encounter more environment-specific issues.
-However, it often makes sense to use whichever method you are most familiar with.
-
-
-### Installation
-
-Choose one of the following methods to install Postgres MCP Pro:
-
-#### Option 1: Using Docker
-
-Pull the Postgres MCP Pro MCP server Docker image.
-This image contains all necessary dependencies, providing a reliable way to run Postgres MCP Pro in a variety of environments.
-
+1. Open up Windows CMD, cd to desktop location.
 ```bash
-docker pull crystaldba/postgres-mcp
+cd desktop
+```
+   
+2. Cloning the repo
+```bash
+git clone https://github.com/CHuiV123/postgres-mcp-LangflowCompatible.git
 ```
 
+3. Get into the folder directory:
+```bash
+cd postgres_mcp_LangflowCompatible
+```
+
+4. Install dependencies
+```bash
+pip install -r requirements.txt
+```
+
+5. set up environment variable as below, replace all the "<-CHANGE THIS" section:
+```bash
+set MYSQL_HOST="YOUR_DATABASE_HOST" <-CHANGE THIS
+set MYSQL_PORT=3306 <-CHANGE THIS IF YOUR DATABASE IS NOT RUNNING ON 3306
+set MYSQL_USER="YOUR_USER_NAME" <-CHANGE THIS
+set MYSQL_PASSWORD="YOUR_PASSWORD" <-CHANGE THIS
+set MYSQL_DATABASE="yOUR_DATABASE_NAME" <-CHANGE THIS
+```
+
+6. Start the server:
+```bash
+uv --directory . run mysql_mcp_server
+```
+
+Upon successful server start up, you shall see "mysql_mcp_server - INFO - Starting MCP STDIO server..."
 
 #### Option 2: Using Python
 
