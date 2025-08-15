@@ -72,57 +72,24 @@ cd postgres_mcp_LangflowCompatible
 
 4. Install dependencies
 ```bash
-pip install -r requirements.txt
+pip install postgres-mcp
 ```
 
 5. set up environment variable as below, replace all the "<-CHANGE THIS" section:
 ```bash
-set MYSQL_HOST="YOUR_DATABASE_HOST" <-CHANGE THIS
-set MYSQL_PORT=3306 <-CHANGE THIS IF YOUR DATABASE IS NOT RUNNING ON 3306
-set MYSQL_USER="YOUR_USER_NAME" <-CHANGE THIS
-set MYSQL_PASSWORD="YOUR_PASSWORD" <-CHANGE THIS
-set MYSQL_DATABASE="yOUR_DATABASE_NAME" <-CHANGE THIS
+set DATABASE_URI=database_engine://username:password@host:port/database_name
 ```
 
 6. Start the server:
 ```bash
-uv --directory . run mysql_mcp_server
+uv run postgres-mcp
 ```
 
-Upon successful server start up, you shall see "mysql_mcp_server - INFO - Starting MCP STDIO server..."
-
-#### Option 2: Using Python
-
-If you have `pipx` installed you can install Postgres MCP Pro with:
-
-```bash
-pipx install postgres-mcp
-```
-
-Otherwise, install Postgres MCP Pro with `uv`:
-
-```bash
-uv pip install postgres-mcp
-```
-
-If you need to install `uv`, see the [uv installation instructions](https://docs.astral.sh/uv/getting-started/installation/).
+Upon successful server start up, you shall see " Starting PostgreSQL MCP Server in UNRESTRICTED mode  server.py:561
+                    INFO     Successfully connected to database and initialized connection pool"
 
 
-### Configure Your AI Assistant
 
-We provide full instructions for configuring Postgres MCP Pro with Claude Desktop.
-Many MCP clients have similar configuration files, you can adapt these steps to work with the client of your choice.
-
-#### Claude Desktop Configuration
-
-You will need to edit the Claude Desktop configuration file to add Postgres MCP Pro.
-The location of this file depends on your operating system:
-- MacOS: `~/Library/Application Support/Claude/claude_desktop_config.json`
-- Windows: `%APPDATA%/Claude/claude_desktop_config.json`
-
-You can also use `Settings` menu item in Claude Desktop to locate the configuration file.
-
-You will now edit the `mcpServers` section of the configuration file.
 
 ##### If you are using Docker
 
