@@ -91,56 +91,7 @@ Upon successful server start up, you shall see " Starting PostgreSQL MCP Server 
 
 
 
-##### If you are using Docker
-
-```json
-{
-  "mcpServers": {
-    "postgres": {
-      "command": "docker",
-      "args": [
-        "run",
-        "-i",
-        "--rm",
-        "-e",
-        "DATABASE_URI",
-        "crystaldba/postgres-mcp",
-        "--access-mode=unrestricted"
-      ],
-      "env": {
-        "DATABASE_URI": "postgresql://username:password@localhost:5432/dbname"
-      }
-    }
-  }
-}
-```
-
-The Postgres MCP Pro Docker image will automatically remap the hostname `localhost` to work from inside of the container.
-
-- MacOS/Windows: Uses `host.docker.internal` automatically
-- Linux: Uses `172.17.0.1` or the appropriate host address automatically
-
-
-##### If you are using `pipx`
-
-```json
-{
-  "mcpServers": {
-    "postgres": {
-      "command": "postgres-mcp",
-      "args": [
-        "--access-mode=unrestricted"
-      ],
-      "env": {
-        "DATABASE_URI": "postgresql://username:password@localhost:5432/dbname"
-      }
-    }
-  }
-}
-```
-
-
-##### If you are using `uv`
+##### Langflow Json Setting
 
 ```json
 {
