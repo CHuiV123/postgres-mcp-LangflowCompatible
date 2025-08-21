@@ -72,7 +72,7 @@ cd postgres_mcp_LangflowCompatible
 
 4. Install dependencies
 ```bash
-pip install postgres-mcp
+pip install postgres-mcp psycopg2
 ```
 
 5. set up environment variable as below, replace all the "<-CHANGE THIS" section:
